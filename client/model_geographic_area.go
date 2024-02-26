@@ -53,36 +53,36 @@ func (dst *GeographicArea) UnmarshalJSON(data []byte) error {
 	}
 
 	// check if the discriminator value is 'LOCAL_2D_POINT_UNCERTAINTY_ELLIPSE'
-	if jsonDict["shape"] == "LOCAL_2D_POINT_UNCERTAINTY_ELLIPSE" {
-		// try to unmarshal JSON data into Local2dPointUncertaintyEllipse
-		err = json.Unmarshal(data, &dst.Local2dPointUncertaintyEllipse);
-		if err == nil {
-			jsonLocal2dPointUncertaintyEllipse, _ := json.Marshal(dst.Local2dPointUncertaintyEllipse)
-			if string(jsonLocal2dPointUncertaintyEllipse) == "{}" { // empty struct
-				dst.Local2dPointUncertaintyEllipse = nil
-			} else {
-				return nil // data stored in dst.Local2dPointUncertaintyEllipse, return on the first match
-			}
-		} else {
-			dst.Local2dPointUncertaintyEllipse = nil
-		}
-	}
+	// if jsonDict["shape"] == "LOCAL_2D_POINT_UNCERTAINTY_ELLIPSE" {
+	// 	// try to unmarshal JSON data into Local2dPointUncertaintyEllipse
+	// 	err = json.Unmarshal(data, &dst.Local2dPointUncertaintyEllipse);
+	// 	if err == nil {
+	// 		jsonLocal2dPointUncertaintyEllipse, _ := json.Marshal(dst.Local2dPointUncertaintyEllipse)
+	// 		if string(jsonLocal2dPointUncertaintyEllipse) == "{}" { // empty struct
+	// 			dst.Local2dPointUncertaintyEllipse = nil
+	// 		} else {
+	// 			return nil // data stored in dst.Local2dPointUncertaintyEllipse, return on the first match
+	// 		}
+	// 	} else {
+	// 		dst.Local2dPointUncertaintyEllipse = nil
+	// 	}
+	// }
 
 	// check if the discriminator value is 'LOCAL_3D_POINT_UNCERTAINTY_ELLIPSOID'
-	if jsonDict["shape"] == "LOCAL_3D_POINT_UNCERTAINTY_ELLIPSOID" {
-		// try to unmarshal JSON data into Local3dPointUncertaintyEllipsoid
-		err = json.Unmarshal(data, &dst.Local3dPointUncertaintyEllipsoid);
-		if err == nil {
-			jsonLocal3dPointUncertaintyEllipsoid, _ := json.Marshal(dst.Local3dPointUncertaintyEllipsoid)
-			if string(jsonLocal3dPointUncertaintyEllipsoid) == "{}" { // empty struct
-				dst.Local3dPointUncertaintyEllipsoid = nil
-			} else {
-				return nil // data stored in dst.Local3dPointUncertaintyEllipsoid, return on the first match
-			}
-		} else {
-			dst.Local3dPointUncertaintyEllipsoid = nil
-		}
-	}
+	// if jsonDict["shape"] == "LOCAL_3D_POINT_UNCERTAINTY_ELLIPSOID" {
+	// 	// try to unmarshal JSON data into Local3dPointUncertaintyEllipsoid
+	// 	err = json.Unmarshal(data, &dst.Local3dPointUncertaintyEllipsoid);
+	// 	if err == nil {
+	// 		jsonLocal3dPointUncertaintyEllipsoid, _ := json.Marshal(dst.Local3dPointUncertaintyEllipsoid)
+	// 		if string(jsonLocal3dPointUncertaintyEllipsoid) == "{}" { // empty struct
+	// 			dst.Local3dPointUncertaintyEllipsoid = nil
+	// 		} else {
+	// 			return nil // data stored in dst.Local3dPointUncertaintyEllipsoid, return on the first match
+	// 		}
+	// 	} else {
+	// 		dst.Local3dPointUncertaintyEllipsoid = nil
+	// 	}
+	// }
 
 	// check if the discriminator value is 'POINT'
 	if jsonDict["shape"] == "POINT" {

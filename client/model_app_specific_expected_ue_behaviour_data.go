@@ -12,6 +12,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the AppSpecificExpectedUeBehaviourData type satisfies the MappedNullable interface at compile time

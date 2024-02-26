@@ -33,10 +33,10 @@ type LcsPrivacyData struct {
 // will change when the set of required properties is changed
 func NewLcsPrivacyData() *LcsPrivacyData {
 	this := LcsPrivacyData{}
-	var areaUsageInd AreaUsageInd = INSIDE_REPORTING
-	this.AreaUsageInd = &areaUsageInd
-	var upLocRepIndAf UpLocRepIndAf = USER_PLANE_REPORT_NOT_ALLOWED
-	this.UpLocRepIndAf = &upLocRepIndAf
+	// var areaUsageInd AreaUsageInd = INSIDE_REPORTING
+	// this.AreaUsageInd = &areaUsageInd
+	// var upLocRepIndAf UpLocRepIndAf = USER_PLANE_REPORT_NOT_ALLOWED
+	// this.UpLocRepIndAf = &upLocRepIndAf
 	return &this
 }
 
@@ -45,10 +45,10 @@ func NewLcsPrivacyData() *LcsPrivacyData {
 // but it doesn't guarantee that properties required by API are set
 func NewLcsPrivacyDataWithDefaults() *LcsPrivacyData {
 	this := LcsPrivacyData{}
-	var areaUsageInd AreaUsageInd = INSIDE_REPORTING
-	this.AreaUsageInd = &areaUsageInd
-	var upLocRepIndAf UpLocRepIndAf = USER_PLANE_REPORT_NOT_ALLOWED
-	this.UpLocRepIndAf = &upLocRepIndAf
+	// var areaUsageInd AreaUsageInd = INSIDE_REPORTING
+	// this.AreaUsageInd = &areaUsageInd
+	// var upLocRepIndAf UpLocRepIndAf = USER_PLANE_REPORT_NOT_ALLOWED
+	// this.UpLocRepIndAf = &upLocRepIndAf
 	return &this
 }
 
