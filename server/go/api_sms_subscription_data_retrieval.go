@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -72,7 +73,8 @@ func (c *SMSSubscriptionDataRetrievalAPIController) GetSmsData(w http.ResponseWr
 	}
 	var plmnIdParam PlmnId
 	if query.Has("plmn-id") {
-		plmnIdParam = query.Get("plmn-id")
+		// plmnIdParam = query.Get("plmn-id")
+		fmt.Println(plmnIdParam)
 	}
 	ifNoneMatchParam := r.Header.Get("If-None-Match")
 	ifModifiedSinceParam := r.Header.Get("If-Modified-Since")

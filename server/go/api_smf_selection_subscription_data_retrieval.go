@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -72,7 +73,8 @@ func (c *SMFSelectionSubscriptionDataRetrievalAPIController) GetSmfSelData(w htt
 	}
 	var plmnIdParam PlmnId
 	if query.Has("plmn-id") {
-		plmnIdParam = query.Get("plmn-id")
+		// plmnIdParam = query.Get("plmn-id")
+		fmt.Println(plmnIdParam)
 	}
 	disasterRoamingIndParam, err := parseBoolParameter(
 		query.Get("disaster-roaming-ind"),

@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -72,11 +73,13 @@ func (c *AccessAndMobilitySubscriptionDataRetrievalAPIController) GetAmData(w ht
 	}
 	var plmnIdParam PlmnIdNid
 	if query.Has("plmn-id") {
-		plmnIdParam = query.Get("plmn-id")
+		// plmnIdParam = query.Get("plmn-id")
+		fmt.Println(plmnIdParam)
 	}
-	var adjacentPlmnsParam []string
+	var adjacentPlmnsParam []PlmnId
 	if query.Has("adjacent-plmns") {
-		adjacentPlmnsParam = strings.Split(query.Get("adjacent-plmns"), ",")
+		// adjacentPlmnsParam = strings.Split(query.Get("adjacent-plmns"), ",")
+		fmt.Println(adjacentPlmnsParam)
 	}
 	disasterRoamingIndParam, err := parseBoolParameter(
 		query.Get("disaster-roaming-ind"),

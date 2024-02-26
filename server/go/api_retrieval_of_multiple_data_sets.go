@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -66,21 +67,25 @@ func (c *RetrievalOfMultipleDataSetsAPIController) GetDataSets(w http.ResponseWr
 		c.errorHandler(w, r, &RequiredError{"supi"}, nil)
 		return
 	}
-	var datasetNamesParam []string
+	var datasetNamesParam []DataSetName
 	if query.Has("dataset-names") {
-		datasetNamesParam = strings.Split(query.Get("dataset-names"), ",")
+		// datasetNamesParam = strings.Split(query.Get("dataset-names"), ",")
+		fmt.Println(datasetNamesParam)
 	}
 	var plmnIdParam PlmnIdNid
 	if query.Has("plmn-id") {
-		plmnIdParam = query.Get("plmn-id")
+		// plmnIdParam = query.Get("plmn-id")
+		fmt.Println(plmnIdParam)
 	}
-	var adjacentPlmnsParam []string
+	var adjacentPlmnsParam []PlmnId
 	if query.Has("adjacent-plmns") {
-		adjacentPlmnsParam = strings.Split(query.Get("adjacent-plmns"), ",")
+		// adjacentPlmnsParam = strings.Split(query.Get("adjacent-plmns"), ",")
+		fmt.Println(adjacentPlmnsParam)
 	}
 	var singleNssaiParam Snssai
 	if query.Has("single-nssai") {
-		singleNssaiParam = query.Get("single-nssai")
+		// singleNssaiParam = query.Get("single-nssai")
+		fmt.Println(singleNssaiParam)
 	}
 	var dnnParam string
 	if query.Has("dnn") {
@@ -88,7 +93,8 @@ func (c *RetrievalOfMultipleDataSetsAPIController) GetDataSets(w http.ResponseWr
 	}
 	var ucPurposeParam UcPurpose
 	if query.Has("uc-purpose") {
-		ucPurposeParam = query.Get("uc-purpose")
+		// ucPurposeParam = query.Get("uc-purpose")
+		fmt.Println(ucPurposeParam)
 	}
 	disasterRoamingIndParam, err := parseBoolParameter(
 		query.Get("disaster-roaming-ind"),

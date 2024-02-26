@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -61,11 +62,14 @@ func (c *RetrievalOfTheIndividualSharedDataAPIController) Routes() Routes {
 func (c *RetrievalOfTheIndividualSharedDataAPIController) GetIndividualSharedData(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	query := r.URL.Query()
-	sharedDataIdParam := params["sharedDataId"]
-	if sharedDataIdParam == "" {
-		c.errorHandler(w, r, &RequiredError{"sharedDataId"}, nil)
-		return
-	}
+	var sharedDataIdParam []string
+	fmt.Println(params)
+	fmt.Println(sharedDataIdParam)
+	// sharedDataIdParam := params["sharedDataId"]
+	// if sharedDataIdParam == []string {
+	// 	c.errorHandler(w, r, &RequiredError{"sharedDataId"}, nil),
+	// 	return
+	// }
 	var supportedFeaturesParam string
 	if query.Has("supported-features") {
 		supportedFeaturesParam = query.Get("supported-features")

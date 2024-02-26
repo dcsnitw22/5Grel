@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -76,7 +77,8 @@ func (c *GPSIToSUPITranslationOrSUPIToGPSITranslationAPIController) GetSupiOrGps
 	}
 	var appPortIdParam AppPortId
 	if query.Has("app-port-id") {
-		appPortIdParam = query.Get("app-port-id")
+		// appPortIdParam = query.Get("app-port-id")
+		fmt.Println(appPortIdParam)
 	}
 	var afServiceIdParam string
 	if query.Has("af-service-id") {
@@ -88,7 +90,8 @@ func (c *GPSIToSUPITranslationOrSUPIToGPSITranslationAPIController) GetSupiOrGps
 	}
 	var requestedGpsiTypeParam GpsiType
 	if query.Has("requested-gpsi-type") {
-		requestedGpsiTypeParam = query.Get("requested-gpsi-type")
+		// requestedGpsiTypeParam = query.Get("requested-gpsi-type")
+		fmt.Println(requestedGpsiTypeParam)
 	}
 	ifNoneMatchParam := r.Header.Get("If-None-Match")
 	ifModifiedSinceParam := r.Header.Get("If-Modified-Since")

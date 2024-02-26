@@ -334,7 +334,7 @@ type GroupIdentifiersAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type LCSBroadcastAssistanceDataTypesRetrievalAPIServicer interface {
-	GetLcsBcaData(context.Context, string, string, string, string, string) (ImplResponse, error)
+	GetLcsBcaData(context.Context, string, string, PlmnId, string, string) (ImplResponse, error)
 }
 
 // LCSMobileOriginatedDataRetrievalAPIServicer defines the api actions for the LCSMobileOriginatedDataRetrievalAPI service
@@ -422,7 +422,7 @@ type RangingAndSidelinkPositioningSubscriptionDataRetrievalAPIServicer interface
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type RetrievalOfMultipleDataSetsAPIServicer interface {
-	GetDataSets(context.Context, string, []string, PlmnIdNid, []string, Snssai, string, UcPurpose, bool, string, string, string) (ImplResponse, error)
+	GetDataSets(context.Context, string, []DataSetName, PlmnIdNid, []PlmnId, Snssai, string, UcPurpose, bool, string, string, string) (ImplResponse, error)
 }
 
 // RetrievalOfSharedDataAPIServicer defines the api actions for the RetrievalOfSharedDataAPI service
@@ -438,7 +438,7 @@ type RetrievalOfSharedDataAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type RetrievalOfTheIndividualSharedDataAPIServicer interface {
-	GetIndividualSharedData(context.Context, string, string, string, string) (ImplResponse, error)
+	GetIndividualSharedData(context.Context, []string, string, string, string) (ImplResponse, error)
 }
 
 // SMFSelectionSubscriptionDataRetrievalAPIServicer defines the api actions for the SMFSelectionSubscriptionDataRetrievalAPI service
@@ -535,7 +535,7 @@ type TimeSyncSubscriptionDataRetrievalAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type TraceConfigurationDataRetrievalAPIServicer interface {
-	GetTraceConfigData(context.Context, string, string, string, string, string) (ImplResponse, error)
+	GetTraceConfigData(context.Context, string, string, PlmnId, string, string) (ImplResponse, error)
 }
 
 // TriggerSORInfoUpdateAPIServicer defines the api actions for the TriggerSORInfoUpdateAPI service
@@ -575,7 +575,7 @@ type UEContextInSMSFDataRetrievalAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type UserConsentSubscriptionDataRetrievalAPIServicer interface {
-	GetUcData(context.Context, string, string, string, string, string) (ImplResponse, error)
+	GetUcData(context.Context, string, string, UcPurpose, string, string) (ImplResponse, error)
 }
 
 // V2XSubscriptionDataRetrievalAPIServicer defines the api actions for the V2XSubscriptionDataRetrievalAPI service

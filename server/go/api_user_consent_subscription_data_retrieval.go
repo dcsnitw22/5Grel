@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -70,9 +71,10 @@ func (c *UserConsentSubscriptionDataRetrievalAPIController) GetUcData(w http.Res
 	if query.Has("supported-features") {
 		supportedFeaturesParam = query.Get("supported-features")
 	}
-	var ucPurposeParam string
+	var ucPurposeParam UcPurpose
 	if query.Has("uc-purpose") {
-		ucPurposeParam = query.Get("uc-purpose")
+		// ucPurposeParam = query.Get("uc-purpose")
+		fmt.Println(ucPurposeParam)
 	}
 	ifNoneMatchParam := r.Header.Get("If-None-Match")
 	ifModifiedSinceParam := r.Header.Get("If-Modified-Since")

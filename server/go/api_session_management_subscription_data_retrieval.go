@@ -10,6 +10,7 @@
 package openapi
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -72,7 +73,8 @@ func (c *SessionManagementSubscriptionDataRetrievalAPIController) GetSmData(w ht
 	}
 	var singleNssaiParam Snssai
 	if query.Has("single-nssai") {
-		singleNssaiParam = query.Get("single-nssai")
+		// singleNssaiParam = query.Get("single-nssai")
+		fmt.Println(singleNssaiParam)
 	}
 	var dnnParam string
 	if query.Has("dnn") {
@@ -80,7 +82,8 @@ func (c *SessionManagementSubscriptionDataRetrievalAPIController) GetSmData(w ht
 	}
 	var plmnIdParam PlmnId
 	if query.Has("plmn-id") {
-		plmnIdParam = query.Get("plmn-id")
+		// plmnIdParam = query.Get("plmn-id")
+		fmt.Println(plmnIdParam)
 	}
 	disasterRoamingIndParam, err := parseBoolParameter(
 		query.Get("disaster-roaming-ind"),
