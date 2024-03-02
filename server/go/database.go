@@ -1,6 +1,6 @@
 package openapi
 
-func database() map[string]SessionManagementSubscriptionData {
+func Database() map[string]SessionManagementSubscriptionData {
 	// Create a map with string keys (ueid) and SdmSubscription values
 	subscriptions := make(map[string]SessionManagementSubscriptionData)
 

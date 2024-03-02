@@ -98,7 +98,7 @@ func NewConfiguration() *Configuration {
 				Variables: map[string]ServerVariable{
 					"apiRoot": ServerVariable{
 						Description: "apiRoot as defined in clause 4.4 of 3GPP TS 29.501.",
-						DefaultValue: "https://example.com",
+						DefaultValue: "http://127.0.0.1:8080",
 					},
 				},
 			},

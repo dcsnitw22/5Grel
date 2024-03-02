@@ -75,7 +75,8 @@ func (r ApiGetSmDataRequest) IfModifiedSince(ifModifiedSince string) ApiGetSmDat
 	return r
 }
 
-func (r ApiGetSmDataRequest) Execute() (*SmSubsData, *http.Response, error) {
+// func (r ApiGetSmDataRequest) Execute() (*SmSubsData, *http.Response, error) {
+func (r ApiGetSmDataRequest) Execute() (*SessionManagementSubscriptionData, *http.Response, error) {
 	return r.ApiService.GetSmDataExecute(r)
 }
 
@@ -96,12 +97,14 @@ func (a *SessionManagementSubscriptionDataRetrievalAPIService) GetSmData(ctx con
 
 // Execute executes the request
 //  @return SmSubsData
-func (a *SessionManagementSubscriptionDataRetrievalAPIService) GetSmDataExecute(r ApiGetSmDataRequest) (*SmSubsData, *http.Response, error) {
+// func (a *SessionManagementSubscriptionDataRetrievalAPIService) GetSmDataExecute(r ApiGetSmDataRequest) (*SmSubsData, *http.Response, error) {
+func (a *SessionManagementSubscriptionDataRetrievalAPIService) GetSmDataExecute(r ApiGetSmDataRequest) (*SessionManagementSubscriptionData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SmSubsData
+		localVarReturnValue  *SessionManagementSubscriptionData
+		// localVarReturnValue  *SmSubsData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionManagementSubscriptionDataRetrievalAPIService.GetSmData")

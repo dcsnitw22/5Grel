@@ -11,28 +11,41 @@ package openapi
 
 import (
 	"context"
-	"errors"
+	"encoding/json"
 	"net/http"
+
+	"github.com/go-redis/redis/v8"
 )
 
 // SessionManagementSubscriptionDataRetrievalAPIService is a service that implements the logic for the SessionManagementSubscriptionDataRetrievalAPIServicer
 // This service should implement the business logic for every endpoint for the SessionManagementSubscriptionDataRetrievalAPI API.
 // Include any external packages or services that will be required by this service.
 type SessionManagementSubscriptionDataRetrievalAPIService struct {
+	rdb *redis.Client
+	ctx context.Context
 }
 
 // NewSessionManagementSubscriptionDataRetrievalAPIService creates a default api service
-func NewSessionManagementSubscriptionDataRetrievalAPIService() SessionManagementSubscriptionDataRetrievalAPIServicer {
-	return &SessionManagementSubscriptionDataRetrievalAPIService{}
+func NewSessionManagementSubscriptionDataRetrievalAPIService(rdb *redis.Client, ctx context.Context) SessionManagementSubscriptionDataRetrievalAPIServicer {
+	return &SessionManagementSubscriptionDataRetrievalAPIService{
+		rdb: rdb,
+		ctx: ctx,
+	}
 }
 
 // GetSmData - retrieve a UE&#39;s Session Management Subscription Data
 func (s *SessionManagementSubscriptionDataRetrievalAPIService) GetSmData(ctx context.Context, supi string, supportedFeatures string, singleNssai Snssai, dnn string, plmnId PlmnId, disasterRoamingInd bool, ifNoneMatch string, ifModifiedSince string) (ImplResponse, error) {
 
-	// Simulating a database lookup or external service call to retrieve subscription data based on the provided supi
-	subscriptionData, err := getSubscriberData(supi)
+	strData, err := s.rdb.Get(ctx, supi).Result()
+
 	if err != nil {
-		// If there's an error during the retrieval, return a 500 Internal Server Error response
+		// If there's an error during the retrieval of data from Redis, return a 500 Internal Server Error response
+		return Response(http.StatusInternalServerError, nil), err
+	}
+
+	// if there is no error then unmarshal the data
+	var subscriptionData *SessionManagementSubscriptionData
+	if err := json.Unmarshal([]byte(strData), &subscriptionData); err != nil {
 		return Response(http.StatusInternalServerError, nil), err
 	}
 
@@ -49,7 +62,6 @@ func (s *SessionManagementSubscriptionDataRetrievalAPIService) GetSmData(ctx con
 		problemDetails := ProblemDetails{Detail: "Requested session management subscription is not available"}
 		return Response(http.StatusNotFound, problemDetails), nil
 	}
-
 	// If all checks pass, return the subscription data with a 200 OK response
 	return Response(http.StatusOK, subscriptionData), nil
 
@@ -92,79 +104,17 @@ func (s *SessionManagementSubscriptionDataRetrievalAPIService) GetSmData(ctx con
 	// return Response(http.StatusNotImplemented, nil), errors.New("GetSmData method not implemented")
 }
 
-// Function to simulate a database lookup or external service call to retrieve subscription data
-func getSubscriberData(supi string) (*SessionManagementSubscriptionData, error) {
-	// returning nil to simulate no data found for the provided supi
-	subscriptions := database()
-	subscription, ok := subscriptions[supi]
-	if ok {
-		return &subscription, nil
-	} else {
-		return nil, errors.New("data does not exist for the corresponding SUPI")
-	}
-}
-
 // Function to check if the requested session management subscription is available
 func isRequestedSessionAvailable(subscriptionData *SessionManagementSubscriptionData, singleNssai Snssai, dnn string, supportedFeatures string, plmnId PlmnId) bool {
-	// always returning true to simulate availability
+	// Compare singleNssai
+	// if subscriptionData.SingleNssai.Sst != singleNssai.Sst || subscriptionData.SingleNssai.Sd != singleNssai.Sd {
+	// 	return false
+	// }
+
+	// // Compare plmnId
+	// if subscriptionData.SupportedFeatures != supportedFeatures {
+	// 	return false
+	// }
+
 	return true
 }
-
-// database retrieves SessionManagementSubscriptionData from Redis or another data source.
-// If the data is not found in Redis, it can be fetched from another source (e.g., a database),
-// and then stored in Redis for subsequent requests. This function showcases storing and retrieving
-// data from Redis and converting the retrieved data to SessionManagementSubscriptionData struct.
-// Adjust the logic based on your specific requirements.
-
-// func database() map[string]SessionManagementSubscriptionData {
-// 	// Create a Redis client
-// 	redisClient := redisClient()
-// 	defer redisClient.Close()
-
-// 	// Example key for demonstration purposes
-// 	key := "erb32"
-
-// 	// Try to fetch data from Redis
-// 	val, err := redisClient.Get(ctx, key).Result()
-// 	if err == nil {
-// 		// Data found in Redis, convert val to your SessionManagementSubscriptionData struct
-// 		var subscriptionData SessionManagementSubscriptionData
-// 		if err := json.Unmarshal([]byte(val), &subscriptionData); err != nil {
-// 			panic(err)
-// 		}
-
-// 		// Populate the map with the retrieved SessionManagementSubscriptionData
-// 		subscriptions := make(map[string]SessionManagementSubscriptionData)
-// 		subscriptions[key] = subscriptionData
-
-// 		return subscriptions
-// 	}
-
-// 	// Data not found in Redis, simulate fetching from another source (e.g., a database)
-// 	// Your logic to fetch data from another source goes here
-
-// 	// Example: Simulate fetching data from another source
-// 	createdSubscription := SessionManagementSubscriptionData{
-// 		SingleNssai: Snssai{
-// 			Sst: 1,
-// 			Sd:  "sd1",
-// 		},
-// 		// ... (Fill other fields accordingly)
-// 	}
-
-// 	// Populate the map with the createdSubscription object
-// 	subscriptions := make(map[string]SessionManagementSubscriptionData)
-// 	subscriptions[key] = createdSubscription
-
-// 	// Store the fetched data in Redis for subsequent requests
-// 	jsonData, err := json.Marshal(createdSubscription)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-
-// 	if err := redisClient.Set(ctx, key, string(jsonData), 0).Err(); err != nil {
-// 		panic(err)
-// 	}
-
-// 	return subscriptions
-// }

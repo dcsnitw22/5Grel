@@ -23,8 +23,8 @@ type AccessTokenReq struct {
 	GrantType string `json:"grant_type"`
 	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.  
 	NfInstanceId string `json:"nfInstanceId"`
-	NfType *NFType `json:"nfType,omitempty"`
-	TargetNfType *NFType `json:"targetNfType,omitempty"`
+	// NfType *NFType `json:"nfType,omitempty"`
+	// TargetNfType *NFType `json:"targetNfType,omitempty"`
 	Scope string `json:"scope"`
 	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.  
 	TargetNfInstanceId *string `json:"targetNfInstanceId,omitempty"`
@@ -119,68 +119,68 @@ func (o *AccessTokenReq) SetNfInstanceId(v string) {
 }
 
 // GetNfType returns the NfType field value if set, zero value otherwise.
-func (o *AccessTokenReq) GetNfType() NFType {
-	if o == nil || IsNil(o.NfType) {
-		var ret NFType
-		return ret
-	}
-	return *o.NfType
-}
+// func (o *AccessTokenReq) GetNfType() NFType {
+// 	if o == nil || IsNil(o.NfType) {
+// 		var ret NFType
+// 		return ret
+// 	}
+// 	return *o.NfType
+// }
 
 // GetNfTypeOk returns a tuple with the NfType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccessTokenReq) GetNfTypeOk() (*NFType, bool) {
-	if o == nil || IsNil(o.NfType) {
-		return nil, false
-	}
-	return o.NfType, true
-}
+// func (o *AccessTokenReq) GetNfTypeOk() (*NFType, bool) {
+// 	if o == nil || IsNil(o.NfType) {
+// 		return nil, false
+// 	}
+// 	return o.NfType, true
+// }
 
 // HasNfType returns a boolean if a field has been set.
-func (o *AccessTokenReq) HasNfType() bool {
-	if o != nil && !IsNil(o.NfType) {
-		return true
-	}
+// func (o *AccessTokenReq) HasNfType() bool {
+// 	if o != nil && !IsNil(o.NfType) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetNfType gets a reference to the given NFType and assigns it to the NfType field.
-func (o *AccessTokenReq) SetNfType(v NFType) {
-	o.NfType = &v
-}
+// func (o *AccessTokenReq) SetNfType(v NFType) {
+// 	o.NfType = &v
+// }
 
 // GetTargetNfType returns the TargetNfType field value if set, zero value otherwise.
-func (o *AccessTokenReq) GetTargetNfType() NFType {
-	if o == nil || IsNil(o.TargetNfType) {
-		var ret NFType
-		return ret
-	}
-	return *o.TargetNfType
-}
+// func (o *AccessTokenReq) GetTargetNfType() NFType {
+// 	if o == nil || IsNil(o.TargetNfType) {
+// 		var ret NFType
+// 		return ret
+// 	}
+// 	return *o.TargetNfType
+// }
 
 // GetTargetNfTypeOk returns a tuple with the TargetNfType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccessTokenReq) GetTargetNfTypeOk() (*NFType, bool) {
-	if o == nil || IsNil(o.TargetNfType) {
-		return nil, false
-	}
-	return o.TargetNfType, true
-}
+// func (o *AccessTokenReq) GetTargetNfTypeOk() (*NFType, bool) {
+// 	if o == nil || IsNil(o.TargetNfType) {
+// 		return nil, false
+// 	}
+// 	return o.TargetNfType, true
+// }
 
 // HasTargetNfType returns a boolean if a field has been set.
-func (o *AccessTokenReq) HasTargetNfType() bool {
-	if o != nil && !IsNil(o.TargetNfType) {
-		return true
-	}
+// func (o *AccessTokenReq) HasTargetNfType() bool {
+// 	if o != nil && !IsNil(o.TargetNfType) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetTargetNfType gets a reference to the given NFType and assigns it to the TargetNfType field.
-func (o *AccessTokenReq) SetTargetNfType(v NFType) {
-	o.TargetNfType = &v
-}
+// func (o *AccessTokenReq) SetTargetNfType(v NFType) {
+// 	o.TargetNfType = &v
+// }
 
 // GetScope returns the Scope field value
 func (o *AccessTokenReq) GetScope() string {
@@ -666,12 +666,12 @@ func (o AccessTokenReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["grant_type"] = o.GrantType
 	toSerialize["nfInstanceId"] = o.NfInstanceId
-	if !IsNil(o.NfType) {
-		toSerialize["nfType"] = o.NfType
-	}
-	if !IsNil(o.TargetNfType) {
-		toSerialize["targetNfType"] = o.TargetNfType
-	}
+	// if !IsNil(o.NfType) {
+	// 	toSerialize["nfType"] = o.NfType
+	// }
+	// if !IsNil(o.TargetNfType) {
+	// 	toSerialize["targetNfType"] = o.TargetNfType
+	// }
 	toSerialize["scope"] = o.Scope
 	if !IsNil(o.TargetNfInstanceId) {
 		toSerialize["targetNfInstanceId"] = o.TargetNfInstanceId

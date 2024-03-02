@@ -81,6 +81,7 @@ func GetSession(ctx context.Context, c openapi.APIClient) {
 	if err != nil {
 		log.Print(err)
 	} else {
+		// log.Print(data)
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			log.Fatal("Error reading response body:", err)

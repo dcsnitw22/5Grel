@@ -39,7 +39,7 @@ type SessionManagementSubscriptionData struct {
 	// A map(list of key-value pairs) where Dnn serves as key of SuggestedPacketNumDl
 	SuggestedPacketNumDlList *map[string]SuggestedPacketNumDl `json:"suggestedPacketNumDlList,omitempty"`
 	Var3gppChargingCharacteristics *string `json:"3gppChargingCharacteristics,omitempty"`
-	NsacMode *NsacAdmissionMode `json:"nsacMode,omitempty"`
+	// NsacMode *NsacAdmissionMode `json:"nsacMode,omitempty"`
 	// indicating a time in seconds.
 	SessInactTimer *int32 `json:"sessInactTimer,omitempty"`
 	OnDemand *bool `json:"onDemand,omitempty"`
@@ -501,36 +501,36 @@ func (o *SessionManagementSubscriptionData) SetVar3gppChargingCharacteristics(v 
 }
 
 // GetNsacMode returns the NsacMode field value if set, zero value otherwise.
-func (o *SessionManagementSubscriptionData) GetNsacMode() NsacAdmissionMode {
-	if o == nil || IsNil(o.NsacMode) {
-		var ret NsacAdmissionMode
-		return ret
-	}
-	return *o.NsacMode
-}
+// func (o *SessionManagementSubscriptionData) GetNsacMode() NsacAdmissionMode {
+// 	if o == nil || IsNil(o.NsacMode) {
+// 		var ret NsacAdmissionMode
+// 		return ret
+// 	}
+// 	return *o.NsacMode
+// }
 
 // GetNsacModeOk returns a tuple with the NsacMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SessionManagementSubscriptionData) GetNsacModeOk() (*NsacAdmissionMode, bool) {
-	if o == nil || IsNil(o.NsacMode) {
-		return nil, false
-	}
-	return o.NsacMode, true
-}
+// func (o *SessionManagementSubscriptionData) GetNsacModeOk() (*NsacAdmissionMode, bool) {
+// 	if o == nil || IsNil(o.NsacMode) {
+// 		return nil, false
+// 	}
+// 	return o.NsacMode, true
+// }
 
 // HasNsacMode returns a boolean if a field has been set.
-func (o *SessionManagementSubscriptionData) HasNsacMode() bool {
-	if o != nil && !IsNil(o.NsacMode) {
-		return true
-	}
+// func (o *SessionManagementSubscriptionData) HasNsacMode() bool {
+// 	if o != nil && !IsNil(o.NsacMode) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetNsacMode gets a reference to the given NsacAdmissionMode and assigns it to the NsacMode field.
-func (o *SessionManagementSubscriptionData) SetNsacMode(v NsacAdmissionMode) {
-	o.NsacMode = &v
-}
+// func (o *SessionManagementSubscriptionData) SetNsacMode(v NsacAdmissionMode) {
+// 	o.NsacMode = &v
+// }
 
 // GetSessInactTimer returns the SessInactTimer field value if set, zero value otherwise.
 func (o *SessionManagementSubscriptionData) GetSessInactTimer() int32 {
@@ -707,9 +707,9 @@ func (o SessionManagementSubscriptionData) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.Var3gppChargingCharacteristics) {
 		toSerialize["3gppChargingCharacteristics"] = o.Var3gppChargingCharacteristics
 	}
-	if !IsNil(o.NsacMode) {
-		toSerialize["nsacMode"] = o.NsacMode
-	}
+	// if !IsNil(o.NsacMode) {
+	// 	toSerialize["nsacMode"] = o.NsacMode
+	// }
 	if !IsNil(o.SessInactTimer) {
 		toSerialize["sessInactTimer"] = o.SessInactTimer
 	}

@@ -22,7 +22,7 @@ var _ MappedNullable = &TraceData{}
 type TraceData struct {
 	// Trace Reference (see 3GPP TS 32.422).It shall be encoded as the concatenation of MCC, MNC and Trace ID as follows: 'MCC'<MNC'-'Trace ID'The Trace ID shall be encoded as a  3 octet string in hexadecimal representation. Each character in the Trace ID string shall take a value of \"0\" to \"9\", \"a\" to \"f\" or \"A\" to \"F\" and shall represent 4 bits. The most significant character representing the 4 most significant bits of the Trace ID shall appear first in the string, and the character representing the 4 least significant bit of the Trace ID shall appear last in the string. 
 	TraceRef string `json:"traceRef"`
-	TraceDepth TraceDepth `json:"traceDepth"`
+	// TraceDepth TraceDepth `json:"traceDepth"`
 	// List of NE Types (see 3GPP TS 32.422).It shall be encoded as an octet string in hexadecimal representation. Each character in the string shall take a value of \"0\" to \"9\", \"a\" to \"f\" or \"A\" to \"F\" and shall represent 4 bits. The most significant character representing the 4 most significant bits shall appear first in the string, and the character representing the 4 least significant bit shall appear last in the string.Octets shall be coded according to 3GPP TS 32.422. 
 	NeTypeList string `json:"neTypeList"`
 	// Triggering events (see 3GPP TS 32.422).It shall be encoded as an octet string in hexadecimal representation. Each character in the string shall take a value of \"0\" to \"9\", \"a\" to \"f\" or \"A\" to \"F\" and shall represent 4 bits. The most significant character representing the 4 most significant bits shall appear first in the string, and the character representing the 4 least significant bit shall appear last in the string. Octets shall be coded according to 3GPP TS 32.422. 
@@ -43,7 +43,7 @@ type _TraceData TraceData
 func NewTraceData(traceRef string, traceDepth TraceDepth, neTypeList string, eventList string) *TraceData {
 	this := TraceData{}
 	this.TraceRef = traceRef
-	this.TraceDepth = traceDepth
+	// this.TraceDepth = traceDepth
 	this.NeTypeList = neTypeList
 	this.EventList = eventList
 	return &this
@@ -82,28 +82,28 @@ func (o *TraceData) SetTraceRef(v string) {
 }
 
 // GetTraceDepth returns the TraceDepth field value
-func (o *TraceData) GetTraceDepth() TraceDepth {
-	if o == nil {
-		var ret TraceDepth
-		return ret
-	}
+// func (o *TraceData) GetTraceDepth() TraceDepth {
+// 	if o == nil {
+// 		var ret TraceDepth
+// 		return ret
+// 	}
 
-	return o.TraceDepth
-}
+// 	return o.TraceDepth
+// }
 
 // GetTraceDepthOk returns a tuple with the TraceDepth field value
 // and a boolean to check if the value has been set.
-func (o *TraceData) GetTraceDepthOk() (*TraceDepth, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TraceDepth, true
-}
+// func (o *TraceData) GetTraceDepthOk() (*TraceDepth, bool) {
+// 	if o == nil {
+// 		return nil, false
+// 	}
+// 	return &o.TraceDepth, true
+// }
 
 // SetTraceDepth sets field value
-func (o *TraceData) SetTraceDepth(v TraceDepth) {
-	o.TraceDepth = v
-}
+// func (o *TraceData) SetTraceDepth(v TraceDepth) {
+// 	o.TraceDepth = v
+// }
 
 // GetNeTypeList returns the NeTypeList field value
 func (o *TraceData) GetNeTypeList() string {
@@ -260,7 +260,7 @@ func (o TraceData) MarshalJSON() ([]byte, error) {
 func (o TraceData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["traceRef"] = o.TraceRef
-	toSerialize["traceDepth"] = o.TraceDepth
+	// toSerialize["traceDepth"] = o.TraceDepth
 	toSerialize["neTypeList"] = o.NeTypeList
 	toSerialize["eventList"] = o.EventList
 	if !IsNil(o.CollectionEntityIpv4Addr) {

@@ -20,16 +20,16 @@ var _ MappedNullable = &ExpectedUeBehaviourData{}
 
 // ExpectedUeBehaviourData struct for ExpectedUeBehaviourData
 type ExpectedUeBehaviourData struct {
-	StationaryIndication *StationaryIndication `json:"stationaryIndication,omitempty"`
+	// StationaryIndication *StationaryIndication `json:"stationaryIndication,omitempty"`
 	// indicating a time in seconds.
 	CommunicationDurationTime *int32 `json:"communicationDurationTime,omitempty"`
 	// indicating a time in seconds.
 	PeriodicTime *int32 `json:"periodicTime,omitempty"`
 	ScheduledCommunicationTime *ScheduledCommunicationTime `json:"scheduledCommunicationTime,omitempty"`
-	ScheduledCommunicationType *ScheduledCommunicationType `json:"scheduledCommunicationType,omitempty"`
+	// ScheduledCommunicationType *ScheduledCommunicationType `json:"scheduledCommunicationType,omitempty"`
 	// Identifies the UE's expected geographical movement. The attribute is only applicable in 5G.
 	ExpectedUmts []LocationArea `json:"expectedUmts,omitempty"`
-	TrafficProfile *TrafficProfile `json:"trafficProfile,omitempty"`
+	// TrafficProfile *TrafficProfile `json:"trafficProfile,omitempty"`
 	BatteryIndication *BatteryIndication `json:"batteryIndication,omitempty"`
 	// string with format 'date-time' as defined in OpenAPI.
 	ValidityTime *time.Time `json:"validityTime,omitempty"`
@@ -55,36 +55,36 @@ func NewExpectedUeBehaviourDataWithDefaults() *ExpectedUeBehaviourData {
 }
 
 // GetStationaryIndication returns the StationaryIndication field value if set, zero value otherwise.
-func (o *ExpectedUeBehaviourData) GetStationaryIndication() StationaryIndication {
-	if o == nil || IsNil(o.StationaryIndication) {
-		var ret StationaryIndication
-		return ret
-	}
-	return *o.StationaryIndication
-}
+// func (o *ExpectedUeBehaviourData) GetStationaryIndication() StationaryIndication {
+// 	if o == nil || IsNil(o.StationaryIndication) {
+// 		var ret StationaryIndication
+// 		return ret
+// 	}
+// 	return *o.StationaryIndication
+// }
 
 // GetStationaryIndicationOk returns a tuple with the StationaryIndication field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExpectedUeBehaviourData) GetStationaryIndicationOk() (*StationaryIndication, bool) {
-	if o == nil || IsNil(o.StationaryIndication) {
-		return nil, false
-	}
-	return o.StationaryIndication, true
-}
+// func (o *ExpectedUeBehaviourData) GetStationaryIndicationOk() (*StationaryIndication, bool) {
+// 	if o == nil || IsNil(o.StationaryIndication) {
+// 		return nil, false
+// 	}
+// 	return o.StationaryIndication, true
+// }
 
 // HasStationaryIndication returns a boolean if a field has been set.
-func (o *ExpectedUeBehaviourData) HasStationaryIndication() bool {
-	if o != nil && !IsNil(o.StationaryIndication) {
-		return true
-	}
+// func (o *ExpectedUeBehaviourData) HasStationaryIndication() bool {
+// 	if o != nil && !IsNil(o.StationaryIndication) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetStationaryIndication gets a reference to the given StationaryIndication and assigns it to the StationaryIndication field.
-func (o *ExpectedUeBehaviourData) SetStationaryIndication(v StationaryIndication) {
-	o.StationaryIndication = &v
-}
+// func (o *ExpectedUeBehaviourData) SetStationaryIndication(v StationaryIndication) {
+// 	o.StationaryIndication = &v
+// }
 
 // GetCommunicationDurationTime returns the CommunicationDurationTime field value if set, zero value otherwise.
 func (o *ExpectedUeBehaviourData) GetCommunicationDurationTime() int32 {
@@ -183,36 +183,36 @@ func (o *ExpectedUeBehaviourData) SetScheduledCommunicationTime(v ScheduledCommu
 }
 
 // GetScheduledCommunicationType returns the ScheduledCommunicationType field value if set, zero value otherwise.
-func (o *ExpectedUeBehaviourData) GetScheduledCommunicationType() ScheduledCommunicationType {
-	if o == nil || IsNil(o.ScheduledCommunicationType) {
-		var ret ScheduledCommunicationType
-		return ret
-	}
-	return *o.ScheduledCommunicationType
-}
+// func (o *ExpectedUeBehaviourData) GetScheduledCommunicationType() ScheduledCommunicationType {
+// 	if o == nil || IsNil(o.ScheduledCommunicationType) {
+// 		var ret ScheduledCommunicationType
+// 		return ret
+// 	}
+// 	return *o.ScheduledCommunicationType
+// }
 
 // GetScheduledCommunicationTypeOk returns a tuple with the ScheduledCommunicationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExpectedUeBehaviourData) GetScheduledCommunicationTypeOk() (*ScheduledCommunicationType, bool) {
-	if o == nil || IsNil(o.ScheduledCommunicationType) {
-		return nil, false
-	}
-	return o.ScheduledCommunicationType, true
-}
+// func (o *ExpectedUeBehaviourData) GetScheduledCommunicationTypeOk() (*ScheduledCommunicationType, bool) {
+// 	if o == nil || IsNil(o.ScheduledCommunicationType) {
+// 		return nil, false
+// 	}
+// 	return o.ScheduledCommunicationType, true
+// }
 
 // HasScheduledCommunicationType returns a boolean if a field has been set.
-func (o *ExpectedUeBehaviourData) HasScheduledCommunicationType() bool {
-	if o != nil && !IsNil(o.ScheduledCommunicationType) {
-		return true
-	}
+// func (o *ExpectedUeBehaviourData) HasScheduledCommunicationType() bool {
+// 	if o != nil && !IsNil(o.ScheduledCommunicationType) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetScheduledCommunicationType gets a reference to the given ScheduledCommunicationType and assigns it to the ScheduledCommunicationType field.
-func (o *ExpectedUeBehaviourData) SetScheduledCommunicationType(v ScheduledCommunicationType) {
-	o.ScheduledCommunicationType = &v
-}
+// func (o *ExpectedUeBehaviourData) SetScheduledCommunicationType(v ScheduledCommunicationType) {
+// 	o.ScheduledCommunicationType = &v
+// }
 
 // GetExpectedUmts returns the ExpectedUmts field value if set, zero value otherwise.
 func (o *ExpectedUeBehaviourData) GetExpectedUmts() []LocationArea {
@@ -247,36 +247,36 @@ func (o *ExpectedUeBehaviourData) SetExpectedUmts(v []LocationArea) {
 }
 
 // GetTrafficProfile returns the TrafficProfile field value if set, zero value otherwise.
-func (o *ExpectedUeBehaviourData) GetTrafficProfile() TrafficProfile {
-	if o == nil || IsNil(o.TrafficProfile) {
-		var ret TrafficProfile
-		return ret
-	}
-	return *o.TrafficProfile
-}
+// func (o *ExpectedUeBehaviourData) GetTrafficProfile() TrafficProfile {
+// 	if o == nil || IsNil(o.TrafficProfile) {
+// 		var ret TrafficProfile
+// 		return ret
+// 	}
+// 	return *o.TrafficProfile
+// }
 
 // GetTrafficProfileOk returns a tuple with the TrafficProfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExpectedUeBehaviourData) GetTrafficProfileOk() (*TrafficProfile, bool) {
-	if o == nil || IsNil(o.TrafficProfile) {
-		return nil, false
-	}
-	return o.TrafficProfile, true
-}
+// func (o *ExpectedUeBehaviourData) GetTrafficProfileOk() (*TrafficProfile, bool) {
+// 	if o == nil || IsNil(o.TrafficProfile) {
+// 		return nil, false
+// 	}
+// 	return o.TrafficProfile, true
+// }
 
 // HasTrafficProfile returns a boolean if a field has been set.
-func (o *ExpectedUeBehaviourData) HasTrafficProfile() bool {
-	if o != nil && !IsNil(o.TrafficProfile) {
-		return true
-	}
+// func (o *ExpectedUeBehaviourData) HasTrafficProfile() bool {
+// 	if o != nil && !IsNil(o.TrafficProfile) {
+// 		return true
+// 	}
 
-	return false
-}
+// 	return false
+// }
 
 // SetTrafficProfile gets a reference to the given TrafficProfile and assigns it to the TrafficProfile field.
-func (o *ExpectedUeBehaviourData) SetTrafficProfile(v TrafficProfile) {
-	o.TrafficProfile = &v
-}
+// func (o *ExpectedUeBehaviourData) SetTrafficProfile(v TrafficProfile) {
+// 	o.TrafficProfile = &v
+// }
 
 // GetBatteryIndication returns the BatteryIndication field value if set, zero value otherwise.
 func (o *ExpectedUeBehaviourData) GetBatteryIndication() BatteryIndication {
@@ -416,9 +416,9 @@ func (o ExpectedUeBehaviourData) MarshalJSON() ([]byte, error) {
 
 func (o ExpectedUeBehaviourData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.StationaryIndication) {
-		toSerialize["stationaryIndication"] = o.StationaryIndication
-	}
+	// if !IsNil(o.StationaryIndication) {
+	// 	toSerialize["stationaryIndication"] = o.StationaryIndication
+	// }
 	if !IsNil(o.CommunicationDurationTime) {
 		toSerialize["communicationDurationTime"] = o.CommunicationDurationTime
 	}
@@ -428,15 +428,15 @@ func (o ExpectedUeBehaviourData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ScheduledCommunicationTime) {
 		toSerialize["scheduledCommunicationTime"] = o.ScheduledCommunicationTime
 	}
-	if !IsNil(o.ScheduledCommunicationType) {
-		toSerialize["scheduledCommunicationType"] = o.ScheduledCommunicationType
-	}
+	// if !IsNil(o.ScheduledCommunicationType) {
+	// 	toSerialize["scheduledCommunicationType"] = o.ScheduledCommunicationType
+	// }
 	if !IsNil(o.ExpectedUmts) {
 		toSerialize["expectedUmts"] = o.ExpectedUmts
 	}
-	if !IsNil(o.TrafficProfile) {
-		toSerialize["trafficProfile"] = o.TrafficProfile
-	}
+	// if !IsNil(o.TrafficProfile) {
+	// 	toSerialize["trafficProfile"] = o.TrafficProfile
+	// }
 	if !IsNil(o.BatteryIndication) {
 		toSerialize["batteryIndication"] = o.BatteryIndication
 	}
